@@ -29,7 +29,7 @@ function ensureDeps(pkg, sec) {
 function resolveConfigPath(args) {
   const i = args.indexOf("--config");
   if (i !== -1 && args[i + 1]) return path.resolve(process.cwd(), args[i + 1]);
-  return path.resolve(process.cwd(), "dev-local-switch.config.json");
+  return path.resolve(process.cwd(), "npm-dependency-switcher.config.json");
 }
 
 function logHeader(mode) {
