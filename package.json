@@ -4,7 +4,7 @@
   "description": "Switch dependencies between local file: paths (dev) and npm versions (prod) using a simple config.",
   "type": "module",
   "bin": {
-    "dev-local-switch": "bin/npm-dependency-switcher.mjs"
+    "npm-dependency-switcher": "bin/npm-dependency-switcher.mjs"
   },
   "scripts": {
     "release:patch": "npm run build:noop && npm version patch && git push && git push --tags && npm publish --access public",
