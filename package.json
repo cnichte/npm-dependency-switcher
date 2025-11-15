@@ -1,6 +1,6 @@
 {
   "name": "npm-dependency-switcher",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Switch dependencies between local file: paths (dev) and npm versions (prod) using a simple config.",
   "type": "module",
   "bin": {
