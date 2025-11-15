@@ -26,24 +26,29 @@ pnpm add -D npm-dependency-switcher
 
 Create a file named `npm-dependency-switcher.config.json` in the project root.
 
-Structure: `"<packageName>": "<localPath>"`
-
-- `packageName` - Must match the dependency name in your package.json exactly.
-- `localPath` - Is the local path to be set in dev mode.
-Typically a file:-path to a neighbouring repo or a production build.
-
-For prod mode, it is assumed that the npm package has the same name as the key.
-So: Key = "hugo-update-lastmod" → npm package "hugo-update-lastmod".
-
 ```json
 {
-  "packages": {
-    "sftp-push-sync": "file:../../../sftp-push-sync/production/sftp-push-sync",
-    "hugo-update-lastmod": "file:../../../hugo-update-lastmod/production/hugo-update-lastmod",
-    "hugo-clean-cache": "file:../../../hugo-clean-cache/production/hugo-clean-cache"
-  }
+  "packages": [
+    {
+      "name": "sftp-push-sync",
+      "localPath": "../../../sftp-push-sync/production/sftp-push-sync"
+    },
+    {
+      "name": "hugo-update-lastmod",
+      "localPath": "../../../hugo-update-lastmod/production/hugo-update-lastmod"
+    },
+    {
+      "name": "hugo-clean-cache",
+      "localPath": "../../../hugo-clean-cache/production/hugo-clean-cache"
+    }
+  ]
 }
 ```
+
+with
+
+- `name` - Must match the dependency name in your package.json exactly.
+- `localPath` - Is the local path to be set in dev mode. Typically a file path to a neighbouring repo or a production build.
 
 ## cli
 
@@ -53,7 +58,7 @@ So: Key = "hugo-update-lastmod" → npm package "hugo-update-lastmod".
     - `prod` → Set npm dependencies to the latest version (^x.y.z)
 - `--config` (optional): Path to the configuration file. Default: `npm-dependency-switcher.config.json` in the current working directory.
 
-Enter scripts in `package.json`:
+Add scripts to `package.json`:
 
 ```json
 {
@@ -67,10 +72,10 @@ Enter scripts in `package.json`:
 use:
 
 ```bash
-# Lokale Repos verwenden (file:…)
+# Using local repositories
 npm run switch:dev
 
-# Auf npm-Pakete (neueste Versionen) umschalten
+# Switch to npm packages (latest versions)
 npm run switch:prod
 ```
 
