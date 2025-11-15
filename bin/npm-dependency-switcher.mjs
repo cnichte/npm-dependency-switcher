@@ -1,5 +1,19 @@
 #!/usr/bin/env node
-// scripts/npm-dependency-switcher.mjs
+/**
+ * NPM Dependency Switcher.
+ * Switches from local folders to 
+ * default "npm module" vice versa 
+ * for the specified resources. 
+ * 
+ * - switch to local development
+ * - restore for production
+ * - Can be combined with release pipelines
+ * - Also works for monorepos without workspaces
+ * - Uses native npm functions, making it extremely robust.
+ * 
+ * @author Carsten Nichte, 2025
+ */
+// bin/npm-dependency-switcher.mjs
 import fs from "node:fs";
 import path from "node:path";
 import { execSync } from "node:child_process";

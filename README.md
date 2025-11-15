@@ -1,7 +1,8 @@
 # # npm-dependency-switcher
 
 Small CLI tool to switch npm dependencies between local file paths and regular npm versions.
-Typischer Use-Case:
+
+Typical use case:
 
 - In **Dev mode**, libraries from local repositories (`file:../…`) are used.
 - In **Prod mode**, the same packages are integrated via the **current version from the npm registry** (`^1.0.4` etc.).
@@ -52,11 +53,11 @@ with
 
 ## cli
 
-- Form: `npm-dependency-switcher <mode> [--config <path>]`
-  - `<mode>`:
+- `npm-dependency-switcher <mode> [--config <path>]`
+  - with `<mode>`:
     - `dev`  → Set local file path dependencies
     - `prod` → Set npm dependencies to the latest version (^x.y.z)
-- `--config` (optional): Path to the configuration file. Default: `npm-dependency-switcher.config.json` in the current working directory.
+  - `--config` (optional): Path to the configuration file. Default: `npm-dependency-switcher.config.json` in the current working directory.
 
 Add scripts to `package.json`:
 
