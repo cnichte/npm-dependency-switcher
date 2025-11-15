@@ -1,0 +1,37 @@
+{
+  "name": "npm-dependency-switcher",
+  "version": "1.0.1",
+  "description": "Switch dependencies between local file: paths (dev) and npm versions (prod) using a simple config.",
+  "type": "module",
+  "bin": {
+    "dev-local-switch": "bin/npm-dependency-switcher.mjs"
+  },
+  "scripts": {
+    "release:patch": "npm run build:noop && npm version patch && git push && git push --tags && npm publish --access public",
+    "release:minor": "npm run build:noop && npm version minor && git push && git push --tags && npm publish --access public",
+    "release:major": "npm run build:noop && npm version major && git push && git push --tags && npm publish --access public",
+    "build:noop": "echo \"nothing to build\"",
+    "ncu-me": "ncu -i --format group",
+    "tree": "tree -a -L 3 ./ > verzeichnis-struktur.txt"
+  },
+  "keywords": [
+    "dev",
+    "local",
+    "dependencies",
+    "switch",
+    "monorepo"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cnichte/npm-dependency-switcher.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cnichte/npm-dependency-switcher/issues"
+  },
+  "homepage": "https://github.com/cnichte/npm-dependency-switcher#readme",
+  "author": "Carsten Nichte",
+  "license": "GPL-3.0-or-later",
+  "dependencies": {
+    "picocolors": "^1.1.1"
+  }
+}
