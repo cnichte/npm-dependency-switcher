@@ -32,6 +32,7 @@ Create a file named `npm-dependency-switcher.config.json` in the project root.
   "packages": [
     {
       "name": "sftp-push-sync",
+      "version":"",
       "localPath": "../../../sftp-push-sync/production/sftp-push-sync"
     },
     {
@@ -49,6 +50,7 @@ Create a file named `npm-dependency-switcher.config.json` in the project root.
 with
 
 - `name` - Must match the dependency name in your package.json exactly.
+- `version` -Desired version/range (e.g. "1.2.3" or "^1.2.3" or "~1.0.0" etc.) If `version` is missing or contains an empty string, the latest version is retrieved and entered as `^<latest>`.
 - `localPath` - Is the local path to be set in dev mode. Typically a file path to a neighbouring repo or a production build.
 
 ## cli

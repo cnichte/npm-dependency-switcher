@@ -83,7 +83,7 @@ async function main() {
   const skipped = [];
 
   for (const entry of list) {
-    const { name, localPath } = entry;
+    const { name, localPath, version } = entry;
     if (!name) continue;
 
     let [sec, obj] = findDep(pkg, name);
@@ -104,6 +104,16 @@ async function main() {
       console.log(`  • ${name} -> file:${localPath}`);
       updated.push(name);
     } else {
+      // PROD-MODUS
+      // Falls in der Config eine Version gesetzt ist (nicht leer) → genau diese verwenden
+      if (typeof version === "string" && version.trim() !== "") {
+        obj[name] = version.trim();
+        console.log(`  • ${name} -> feste Version aus Config: ${pc.cyan(version.trim())}`);
+        updated.push(name);
+        continue;
+      }
+
+      // sonst wie bisher: neueste npm-Version holen
       console.log(`  • ${name} -> neueste npm-Version`);
       try {
         const v = execSync(`npm view ${name} version`, { encoding: "utf8" }).trim();
