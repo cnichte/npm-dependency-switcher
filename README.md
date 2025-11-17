@@ -81,3 +81,29 @@ npm run switch:prod
 ```
 
 Check out package.json to see how the entries change and enjoy :-)
+
+switches from:
+
+```json
+  "dependencies": {
+    "picocolors": "^1.1.1",
+    "hugo-clean-cache": "file:../../../hugo-clean-cache/production/hugo-clean-cache",
+    "hugo-update-lastmod": "file:../../../hugo-update-lastmod/production/hugo-update-lastmod",
+    "hugo-broken-links-checker": "file:../../../hugo-broken-links-checker/production/hugo-broken-links-checker",
+    "sftp-push-sync": "file:../../../sftp-push-sync/production/sftp-push-sync"
+  },
+```
+
+to this.
+
+```json
+  "dependencies": {
+    "picocolors": "^1.1.1",
+    "hugo-clean-cache": "^1.0.1",
+    "hugo-update-lastmod": "^1.0.7",
+    "hugo-broken-links-checker": "^1.0.3",
+    "sftp-push-sync": "^1.0.18"
+  },
+```
+
+vice versa.
